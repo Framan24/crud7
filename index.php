@@ -36,11 +36,13 @@ include_once('leer.php');
                     <th scope="col">First</th>
                     <th scope="col">Last</th>
                     <th scope="col">Handle</th>
+                    <th scope="col">Handle</th>
+
                 </tr>
             </thead>
             <tbody>
                 <?php
-                foreach($allData as $tarea) 
+                foreach($allData as $tarea) { 
                 echo '<tr>';
                 echo    '<th scope="row">';
                     echo $tarea['id'];
@@ -48,10 +50,20 @@ include_once('leer.php');
                 echo    '<td>';
                    echo $tarea['tarea'];
                   echo'</td>';
-                   echo '<td>Otto</td>';
+                   echo '<td>';
+                   echo $tarea['descripcion'];
+                   echo'</td>';
                    echo '<td>@mdo</td>';
-               echo '</tr>';
-                ?>
+               echo '<td>'; 
+               echo '<a href="editar.php?id='.$tarea['id'].'">';
+               echo 'editar';
+               echo '</a>';
+               echo '<a href="borrar.php?id='.$tarea['id'].'">';
+               echo '</a>';
+               echo '</td>';
+                }
+                    ?>;
+               
                 
             </tbody>
         </table>
